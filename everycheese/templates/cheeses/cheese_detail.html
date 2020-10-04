@@ -22,4 +22,8 @@
     </p>
   {% endif %}
 
+  <hr/>
+  {% if cheese.creator %}
+    <h5 class="text-muted">Submitted by <a href="{{ cheese.creator.get_absolute_url }}">{{ cheese.creator.username }}</a></h5>
+  {% endif %}
 {% endblock %}
