@@ -30,9 +30,9 @@ def test_add_resolve():
 def test_detail_reverse(cheese):
     assert (
         reverse("cheeses:detail", kwargs={"slug": cheese.slug})
-        == f"/cheeses/{cheese.slug}"
+        == f"/cheeses/{cheese.slug}/"
     )
 
 
 def test_detail_resolve(cheese):
-    assert resolve(f"/cheeses/{cheese.slug}").view_name == "cheeses:detail"
+    assert resolve(f"/cheeses/{cheese.slug}/").view_name == "cheeses:detail"
