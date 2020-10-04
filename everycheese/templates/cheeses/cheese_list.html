@@ -1,16 +1,24 @@
-{%  extends "base.html" %}
+{% extends "base.html" %}
 
 {% block title %}Cheese List{% endblock title %}
 
 {% block content %}
   <h2>Cheese List</h2>
-  <ul>
+
+  <div class="card-deck">
     {% for cheese in cheese_list %}
-      <li>
-        <a href="{% url 'cheeses:detail' cheese.slug %}">{{ cheese.name }}</a>
-      </li>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">
+            <a href="{% url 'cheeses:detail' cheese.slug %}">
+              {{ cheese.name }}
+              <img src="{{ cheese.country_of_origin.flag }}"/>
+            </a>
+          </h5>
+        </div>
+      </div>
     {% endfor %}
-  </ul>
+  </div>
 
   <hr/>
   <p>Don't see a cheese listed here?</p>
